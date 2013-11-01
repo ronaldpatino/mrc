@@ -19,13 +19,9 @@
         ?>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="<?php bloginfo('template_url'); ?>/assets/css/bootstrap.css" rel="stylesheet">
-    <link href="<?php bloginfo('template_url'); ?>/assets/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="<?php bloginfo('template_url'); ?>/assets/css/custom.css" rel="stylesheet">
-    <link href="<?php bloginfo('template_url'); ?>/assets/css/font.css" rel="stylesheet">
 
-    <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/assets/scripts/jquery-1.9.0.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/assets/scripts/bootstrap.js"></script>
+    <link href="<?php bloginfo('template_url'); ?>/assets/css/elmercurio.css.php" rel="stylesheet">
+    <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/assets/scripts/elmercurio.js.php"></script>
     <?php wp_head(); ?>
 
 </head>
