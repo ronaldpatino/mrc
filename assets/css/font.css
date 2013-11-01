@@ -1,0 +1,392 @@
+body{
+    font-family: Georgia, Times, "Times New Roman", serif;
+    line-height: 1.5;
+}
+
+a{
+    color: #006BAE;
+}
+
+.top-navbar{
+    font-family: arial,sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.navbar .nav > li > a {
+    color: #000000;
+    text-shadow: none;
+}
+
+.navbar .nav > li > a:focus,
+.navbar .nav > li > a:hover {
+    color: #fff !important;
+    text-decoration: none;
+    text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+.cuenca:hover{
+    background-color: #b91d1e !important;
+    color: #fff !important;
+}
+
+.deportes:hover{
+    background-color: #7200AC !important;
+}
+
+.sucesos:hover{
+    background-color: #ae113e !important;
+}
+
+.nacionales:hover{
+    background-color: #FF981D !important;
+}
+
+.austro:hover{
+    background-color: #15992A !important;
+}
+
+.cultura:hover{
+    background-color: #632F00 !important;
+}
+
+.farandula:hover{
+    background-color: #FF1D77 !important;
+}
+
+
+.mundo:hover{
+    background-color: #006AC1 !important;
+}
+
+.opinion:hover{
+    background-color: #7F6E94 !important;
+}
+
+.breadcrumb > li:first-child {
+    font-size: 14px;
+    text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+.breadcrumb > li > a {
+    color: #FFFFFF;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-decoration: none;
+}
+
+.main > h2{
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 2rem;
+    font-weight: normal;
+    line-height: 105%
+}
+
+.main > h2 > a{
+    text-decoration: none;
+}
+
+.main > p {
+    font-size: 1.1rem;
+    line-height: 120%;
+    text-align: justify;
+}
+
+
+.main > h3{
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 1.4rem;
+    font-weight: normal;
+    line-height: 105%
+}
+
+.main > h3 > a{
+    text-decoration: none;
+}
+
+
+
+.thumbnail-custom h3{
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 1.2rem;
+    font-weight: normal;
+    line-height: 105%;
+}
+
+.thumbnail-custom h3 > a{
+    text-decoration: none;
+}
+
+.thumbnail-custom > p{
+    font-size: 0.9rem;
+    line-height: 120%;
+    text-align: justify;
+}
+
+
+.thumbnail-custom > p > a{
+    text-decoration: none;
+    color: #000000;
+}
+
+.thumbnail-custom > p > a:hover{
+    text-decoration: none;
+    color: #005580;
+}
+
+
+
+.sidebar > h2 {
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 1.2rem;
+    font-weight: normal;
+    line-height: 105%;
+    color: #fff;
+}
+
+
+.sidebar  .nav-stacked > li > a {
+    font-size: 0.8rem !important;
+}
+
+
+.portada > h3{
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 1.2rem;
+    font-weight: normal;
+    line-height: 105%;
+    color: #fff;
+}
+
+.noticia-tricol > h2 {
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: #ffffff !important;
+}
+
+.noticia-tricol > h2 > a {
+    color: #ffffff !important;
+    display: block;
+}
+
+.media-body-tricol{
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 105%;
+    text-align: justify;
+}
+
+.media-body-tricol > a:hover{
+
+    text-decoration: none;
+}
+
+#tricoldeportes > h2{
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: #ffffff;
+}
+
+
+#tricoldeportes > h2 > a{
+    color: #FFFFFF !important;
+    display: block;
+}
+
+#deportivocuenca h2{
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+
+    color: #ffffff;
+}
+
+#deportivocuenca > h2 > a{
+    color: #FFFFFF !important;
+    display: block;
+}
+#deportivocuenca > h2 > a:hover{
+    color: #FFFFFF !important;
+    display: block;
+}
+
+#deportivocuenca > h2:hover{
+    display: block;
+    background-color: #e5000e;
+}
+
+
+#sociales h2{
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+
+    color: #ffffff;
+}
+
+#sociales h2 > a{
+    color: #FFFFFF !important;
+    display: block;
+}
+
+
+
+#opinion h2{
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+
+    color: #ffffff;
+}
+
+#opinion h2 > a{
+    color: #FFFFFF !important;
+    display: block;
+}
+
+
+#opinion h3{
+
+    margin: 0 0 3px 0;
+
+font-family: Georgia,Times,"Times New Roman",serif;
+    font-size: 1.2rem;
+    font-weight: normal;
+    line-height: 105%;
+
+
+}
+#opinion p{
+
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 105%;
+}
+
+#opinion p > a{
+   color: #000000;
+}
+
+#opinion p > a:hover{
+    text-decoration: none;
+    color: #005580;
+}
+
+
+#opinion h3 > a:hover{
+    text-decoration: none;
+}
+
+#multimedia h2{
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+
+    color: #ffffff;
+}
+
+#multimedia h2 >a {
+    color: #FFFFFF !important;
+    display: block;
+}
+
+#multimedia h2:hover {
+    background-color: #296a87;
+    display: block;
+}
+
+#suplementos h2{
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: #ffffff;
+}
+
+#suplementos h2 >a {
+    color: #FFFFFF !important;
+    display: block;
+}
+
+#suplementos h2:hover {
+    background-color: #005580;
+    display: block;
+}
+
+.sociales-thumbnails-item > p {
+    color: #ffffff !important;
+    font-size: 0.8rem;
+}
+
+.multimedia-thumbnails-item > p {
+    color: #ffffff !important;
+    font-size: 0.8rem;
+}
+
+.suplementos-thumbnails-item >p {
+    color: #ffffff !important;
+    font-size: 0.8rem;
+}
+
+.direccion {
+    color: #ffffff !important;
+    font-size: 0.8rem;
+}
+
+.p-bottom{
+    color: white !important;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 100;
+}
+
+.p-bottom a{
+    color: #2BAAE1;
+}
+.p-top{
+    font-weight: normal;
+}
+
+header > h2{
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 2rem;
+    font-weight: normal;
+    line-height: 105%;
+    color: #03355A;
+}
+
+.media-body > h3 {
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 1.2rem;
+    font-weight: normal;
+    line-height: 105%;
+    color: #03355A;
+    margin: 0;
+}
+
+.media-body > h3 > a:hover{
+    text-decoration: none;
+}
+
+.primary-content > p{
+    font-size: 16px;
+}
+
+.primary-content > p > strong{
+
+    font-family: Bitter,Georgia,serif;
+    color: #000000;
+    font-size: 1.5rem;
+    font-weight: normal;
+    line-height: 105%;
+}
+
+.principal > p > a{
+    color: #000000;
+    text-decoration: none;
+}
+
+.principal > p > a:hover{
+    color: #005580;
+    text-decoration: none;
+}
