@@ -24,7 +24,7 @@ if (!$twitter_result) { // cache doesn't exist or is older than 10 mins
 
     $url = "https://api.twitter.com/1.1/statuses/user_timeline.json";
     $getfield = '?screen_name=mercurioec&exclude_replies=true&include_rts=false&count=10';
-
+    $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
 
     $requestMethod = 'GET';
     $twitter = new TwitterAPIExchange($settings);
@@ -34,12 +34,17 @@ if (!$twitter_result) { // cache doesn't exist or is older than 10 mins
 
     foreach($valor as $v)
     {
+
+
+        $regex = preg_match($reg_exUrl, $v['text'], $matches);
+        $link = $regex?$regex[0]:'#';
         $fecha = date( 'H:i', strtotime($v['created_at']));
-        $href = isset($v['entities']['urls'][0]['url'])?$v['entities']['urls'][0]['url']:'#';
+        $href = isset($v['entities']['urls'][0]['url'])?$v['entities']['urls'][0]['url']:$link;
         $title = isset($v['entities']['urls'][0]['expanded_url'])?$v['entities']['urls'][0]['expanded_url']:'El Mercurio  Cuenca - Noticias Ecuador Azuay';
         $target = isset($v['entities']['urls'][0]['expanded_url'])?'target="_blank"':'';
-        $media = isset($v['entities']['media'][0]['media_url_https'])?'data-trigger="hover" data-placement="top" rel="popover" data-image="' . $v['entities']['media'][0]['media_url_https'] . '"':'';
-        $html_links = '<a  id="t_'. $v['id_str'] .'" '. $media .  ' href="'.$href . '" ' . $target .'><strong>' . $fecha . '</strong> - ' . $v['text'] .  '</a>';
+        $media = isset($v['entities']['media'][0]['media_url_https'])?' data-trigger="hover" data-placement="top" rel="popover" data-image="' . $v['entities']['media'][0]['media_url_https'] . '"':'';
+        $html_links  = '<a  id="t_'. $v['id_str'] .'" '. $media .  ' href="'.$href . '" ' . $target .'><strong>' . $fecha . '</strong> - ' . $v['text'] .  '</a>';
+        $html_links .= (!empty($media))?'<img style="display: none;" src="' . $v['entities']['media'][0]['media_url_https'] . '"/>':'';
         $json[] = array('created_at'=>$v['created_at'],'text'=>$html_links);
     }
 
@@ -54,12 +59,14 @@ if (!$twitter_result) { // cache doesn't exist or is older than 10 mins
 
     foreach($valor as $v)
     {
+        $link = $regex?$regex[0]:'#';
         $fecha = date( 'H:i', strtotime($v['created_at']));
-        $href = isset($v['entities']['urls'][0]['url'])?$v['entities']['urls'][0]['url']:'#';
+        $href = isset($v['entities']['urls'][0]['url'])?$v['entities']['urls'][0]['url']:$link;
         $title = isset($v['entities']['urls'][0]['expanded_url'])?$v['entities']['urls'][0]['expanded_url']:'El Mercurio  Cuenca - Noticias Ecuador Azuay';
         $target = isset($v['entities']['urls'][0]['expanded_url'])?'target="_blank"':'';
-        $media = isset($v['entities']['media'][0]['media_url_https'])?'data-trigger="hover" data-placement="top" rel="popover" data-image="' . $v['entities']['media'][0]['media_url_https'] . '"':'';
+        $media = isset($v['entities']['media'][0]['media_url_https'])?' data-trigger="hover" data-placement="top" rel="popover" data-image="' . $v['entities']['media'][0]['media_url_https'] . '"':'';
         $html_links = '<a  id="t_'. $v['id_str'] .'" '. $media .  ' href="'.$href . '" ' . $target .'><strong>' . $fecha . '</strong> - ' . $v['text'] .  '</a>';
+        $html_links .= (!empty($media))?'<img style="display: none;" src="' . $v['entities']['media'][0]['media_url_https'] . '"/>':'';
         $json[] = array('created_at'=>$v['created_at'],'text'=>$html_links);
     }
 

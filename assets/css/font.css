@@ -344,12 +344,14 @@ font-family: Georgia,Times,"Times New Roman",serif;
     color: #ffffff;
     text-decoration: none;
     display: block;
+    height: 25px; !important;
 }
 
 .p-bottom a:hover{
-    color: #2BAAE1;
-    text-decoration: none;
-    display: block;
+    color: #2BAAE1 !important;
+    text-decoration: none !important;
+    display: block !important;
+    height: 25px; !important;
 }
 
 .p-top{
