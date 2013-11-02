@@ -16,27 +16,39 @@
                 $('<ul/>', {'id':'ticker','class': 'twitem', html: items.join('')}).appendTo('#twitterlist');
 
                 var img = '<img src="https://si0.twimg.com/a/1339639284/images/three_circles/twitter-bird-white-on-blue.png" />';
-                $("[rel=popover]").popover({ content: img, html:true });
+                $("[rel=popover]").popover({html:true, content: get_popover_content });
 
-                /*TODO TErminar esto*/
-                $('*[data-poload]').bind('hover',function() {
-                    var e=$(this);
-                    e.unbind('hover');
-                    $.get(e.data('poload'),function(d) {
-                        e.popover({content: d}).popover('show');
-                    });
-                });
+
+
 
                 function tick(){$('#ticker li:first').slideUp( function () { $(this).appendTo($('#ticker')).slideDown(); });}
-                tw=setInterval(function(){ tick () }, 1000);
+
+                tw=setInterval(function(){ tick () }, 10000);
+
                 $('#twitterlist').mouseover(function(){
                     clearInterval(tw);
                 }).mouseout(function(){
-                        tw = setInterval(function(){ tick () }, 1000);
-                })
+                        tw = setInterval(function(){ tick () }, 10000);
+                    })
 
             }
         ).fail(function() { });
+
+
+
+        function get_popover_content() {
+
+            var thisVal=$(this);
+
+            if ($(this).attr('data-image')) {
+
+                var img = '<img src="' + $(this).attr('data-image') + '" />';
+                thisVal.attr('data-content',img);
+
+
+            }
+
+        }
     });
 
 </script>
