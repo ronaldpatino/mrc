@@ -1101,3 +1101,7 @@ li{
 .primary-content > p{
     text-align: justify;
 }
+
+.thumbail-center{
+    text-align: center !important;
+}
