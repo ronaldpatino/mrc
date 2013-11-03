@@ -70,9 +70,8 @@ class Farandula_Widget extends WP_Widget
             $farandula .= '<ul class="thumbnails sociales-thumbnails">';
 
             $imagen = get_featured_image($post->ID);
-            $src= getphpthumburl($imagen, 'w=365&h=356&zc=1');
+            $src = getphpthumburl($imagen, 'w=365&h=356&iar=1');
             $farandula .= "<li class='span12'>";
-
 
             $farandula .= '<a href="' . $permalink . '">';
             $farandula .= '<img class="img_farandula" src="' . $src . '" alt="' . $post->post_title . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay" title="' . $post->post_title . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay">';
