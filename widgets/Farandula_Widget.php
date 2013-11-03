@@ -70,7 +70,7 @@ class Farandula_Widget extends WP_Widget
             $farandula .= '<ul class="thumbnails sociales-thumbnails">';
 
             $imagen = get_featured_image($post->ID);
-            $src = getphpthumburl($imagen, 'w=365&h=356&iar=1');
+            $src = getphpthumburl($imagen, 'w=390&h=355&iar=1');
             $farandula .= "<li class='span12'>";
 
             $farandula .= '<a href="' . $permalink . '">';
