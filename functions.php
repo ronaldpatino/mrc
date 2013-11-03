@@ -328,7 +328,7 @@ function get_featured_image($id)
     $imagen = $wpdb->get_var($q);
 
     if ($imagen) {
-        //return $imagen;
+        return $imagen;
     }
     return  get_bloginfo('template_url') . '/assets/img/placeholder.png';
 
