@@ -21,6 +21,18 @@ add_image_size( 'noticia-single-imagen', 660, 330, true );
 add_filter( 'comment_text', 'wp_filter_nohtml_kses' );
 add_filter( 'comment_text_rss', 'wp_filter_nohtml_kses' );
 add_filter( 'comment_excerpt', 'wp_filter_nohtml_kses' );
+remove_action('wp_head', 'wp_generator');
+remove_action('wp_head', 'wlwmanifest_link');
+remove_action('wp_head', 'rsd_link');
+
+remove_action('wp_head', 'wp_print_scripts');
+remove_action('wp_head', 'wp_print_head_scripts', 9);
+remove_action('wp_head', 'wp_enqueue_scripts', 1);
+add_action('wp_footer', 'wp_print_scripts', 5);
+add_action('wp_footer', 'wp_enqueue_scripts', 5);
+add_action('wp_footer', 'wp_print_head_scripts', 5);
+
+
 
 define('empty_username', 1);
 define('invalid_username', 2);
@@ -402,8 +414,6 @@ function limpia_contenido($texto){
 }
 
 
-// Tidy up the <head> a little. Full reference of things you can show/remove is here: http://rjpargeter.com/2009/09/removing-wordpress-wp_head-elements/
-remove_action('wp_head', 'wp_generator');// Removes the WordPress version as a layer of simple security
 
 add_theme_support('post-thumbnails');
 
