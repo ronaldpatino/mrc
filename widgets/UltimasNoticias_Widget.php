@@ -17,23 +17,25 @@ class UltimasNoticias extends WP_Widget {
 
         if (!isset($instance['numberposts'])) {$instance['numberposts']= $this->max_noticias;}
         global $wpdb,  $post;
-        $NOTICIA_LO_ULTIMO =    18;
-
-
+        $NOTICIA_LO_ULTIMO =    get_id_real(1);
+        date_default_timezone_set("America/Guayaquil");
+        $fecha =  date('Y-m-d');
         $sql = "SELECT
-					a.ID, a.post_date, a.post_title, a.post_content, a.post_author, a.post_name, a.post_excerpt, a.comment_status
+					a.ID, a.post_date, a.post_title, a.post_name
 
                                 FROM wp_04vcw8_posts a, wp_04vcw8_term_relationships b, wp_04vcw8_term_taxonomy c
 
 				WHERE
+					a.post_date <= '".$fecha." 23:59:59'
 
+				AND
 					a.id = b.object_id
 
 				AND
 					b.term_taxonomy_id = c.term_taxonomy_id
 
 				AND
-					c.term_id = '{$NOTICIA_LO_ULTIMO}'
+					c.term_id = ".$NOTICIA_LO_ULTIMO."
 
 				AND
 					a.post_type = 'post'

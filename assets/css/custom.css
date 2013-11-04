@@ -222,31 +222,36 @@ body {
 
 
 .sociales-thumbnails-item > a > img{
-    width: 230px !important;
-    height: 164px !important;
+
 }
 
 
 .sociales-carousel-control {
-    background: none repeat scroll 0 0 #222222;
-    border: 3px solid #FFFFFF;
-    border-radius: 23px 23px 23px 23px;
-    color: #FFFFFF;
-    height: 20px;
+    background: none;
+
+    height: 200px;
+    width: 70px;
     left: 10px;
     line-height: 18px;
     margin-top: 10px;
-    
     position: absolute;
     text-align: center;
-    top: 30%;
-    width: 20px;
+    top: -20px;
+
 }
 
 
 .sociales-carousel-control.right {
     left: auto;
     right: 10px;
+    background-image: url('../img/fancybox-right.png');
+
+}
+.sociales-carousel-control.left {
+    right: auto;
+    left: 10px;
+    background-image: url('../img/fancybox-left.png');
+
 }
 .sociales-carousel-control:hover, .sociales-carousel-control:focus {
     color: #FFFFFF;
@@ -256,6 +261,53 @@ body {
 .carousel .sociales-carousel-control { visibility: hidden !important; }
 .carousel:hover .sociales-carousel-control { visibility: visible !important; }
 
+
+
+.caricatura-thumbnails-item{
+    border: 0 !important;
+    box-shadow:none;
+}
+
+
+.caricatura-thumbnails-item > a > img{
+
+}
+
+
+.caricatura-carousel-control {
+    background: none;
+
+    height: 200px;
+    width: 70px;
+    left: 10px;
+    line-height: 18px;
+    margin-top: 10px;
+    position: absolute;
+    text-align: center;
+    top: 50px;
+
+}
+
+
+.caricatura-carousel-control.right {
+    left: auto;
+    right: 5px;
+    background-image: url('../img/fancybox-right.png');
+
+}
+.caricatura-carousel-control.left {
+    right: auto;
+    left: 5px;
+    background-image: url('../img/fancybox-left.png');
+
+}
+.caricatura-carousel-control:hover, .caricatura-carousel-control:focus {
+    color: #FFFFFF;
+    opacity: 0.9;
+    text-decoration: none;
+}
+.carousel .caricatura-carousel-control { visibility: hidden !important; }
+.carousel:hover .caricatura-carousel-control { visibility: visible !important; }
 
 
 #tricolacl-titulo {
@@ -1040,39 +1092,11 @@ form.navbar-search .input-append {
 }
 
 
-.caricatura-carousel-control {
-    background: none repeat scroll 0 0 #222222;
-    border: 3px solid #FFFFFF;
-    border-radius: 23px 23px 23px 23px;
-    color: #FFFFFF;
-    height: 20px;
-    left: 10px;
-    line-height: 18px;
-    margin-top: 10px;
-    opacity: 0.5;
-    position: absolute;
-    text-align: center;
-    top: 40%;
-    width: 20px;
-}
-
-
-.caricatura-carousel-control.right {
-    left: auto;
-    right: 10px;
-}
-.caricatura-carousel-control:hover, .caricatura-carousel-control:focus {
-    color: #FFFFFF;
-    opacity: 0.9;
-    text-decoration: none;
-}
 
 .carousel{
     margin-bottom: 0px !important;
 }
 
-.carousel .caricatura-carousel-control { visibility: hidden !important; }
-.carousel:hover .caricatura-carousel-control { visibility: visible !important; }
 
 .carousel-caption_imagenes_noticia p{
     font-size: 12px;padding:0px; line-height: 15px

@@ -80,7 +80,7 @@ class Carrusel_Widget extends WP_Widget
             $carrusel .= '<div class="thumbnail sociales-thumbnails-item">';
 
             $imagen = get_featured_image($post->ID);
-            $src= getphpthumburl($imagen, 'w=201&h=164&zc=1&iar=1'); //zc=1
+            $src= getphpthumburl($imagen, 'w=280&h=164&zc=1&iar=1'); //zc=1
             $src_big= getphpthumburl($imagen, 'w=400');
             
             $carrusel .= '<a href="#' . $carrusel_modal . '" data-caption=" ' . $post->post_title . '"  data-img=" ' . $src_big . '" data-toggle="modal">';
@@ -111,8 +111,8 @@ class Carrusel_Widget extends WP_Widget
         $carrusel .= '</div>';
 
 
-        $carrusel .= '<a data-slide="prev" href="#' . $carussel_id . '" class="left sociales-carousel-control">&lt;</a>';
-        $carrusel .= '<a data-slide="next" href="#' . $carussel_id . '" class="right sociales-carousel-control">&gt;</a>';
+        $carrusel .= '<a data-slide="prev" href="#' . $carussel_id . '" class="left sociales-carousel-control">&nbsp;</a>';
+        $carrusel .= '<a data-slide="next" href="#' . $carussel_id . '" class="right sociales-carousel-control">&nbsp;</a>';
         $carrusel .= '</div>';
 
         $carrusel .= '<script type="text/javascript">jQuery(document).ready(function($) {';

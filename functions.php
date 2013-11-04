@@ -215,7 +215,19 @@ if (function_exists('register_sidebar'))
 
 }
 
+function thumb_multimedia($imagen, $param=null )
+{
+    if ($param == null)
+    {
+        $src= getphpthumburl($imagen, 'w=201&h=164&zc=1&iar=1'); //zc=1
+    }
+    else
+    {
+        $src= getphpthumburl($imagen, $param); //zc=1
+    }
 
+    return $src;
+}
 /***
  * Retorna la fecha formateada
  * @return string

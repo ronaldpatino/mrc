@@ -82,7 +82,13 @@ class Multimedia_Widget extends WP_Widget
             $carrusel .= '<div class="thumbnail sociales-thumbnails-item">';
 
             $imagen = get_featured_image($post->ID);
-            $src= getphpthumburl($imagen, 'w=201&h=164&zc=1');
+            if ($NOTICIA_MULTIMEDIA == 4252){
+                $src= thumb_multimedia($imagen, 'w=180&h=180&zc=1');
+            }
+            else{
+                $src= thumb_multimedia($imagen, 'w=230&h=164&zc=1');
+            }
+
 
             $carrusel .= '<a href="' . $permalink . '">' ;
             $carrusel .= '<img src="' . $src . '" alt="' .$post->post_title . '" title="' .$post->post_title . '">';
@@ -112,8 +118,8 @@ class Multimedia_Widget extends WP_Widget
 
         $carrusel .= '</div>';
 
-        $carrusel .= '<a data-slide="prev" href="#' . $carussel_id . '" class="left sociales-carousel-control">&lt;</a>';
-        $carrusel .= '<a data-slide="next" href="#' . $carussel_id . '" class="right sociales-carousel-control">&gt;</a>';
+        $carrusel .= '<a data-slide="prev" href="#' . $carussel_id . '" class="left sociales-carousel-control">&nbsp;</a>';
+        $carrusel .= '<a data-slide="next" href="#' . $carussel_id . '" class="right sociales-carousel-control">&nbsp;</a>';
         $carrusel .= '</div>';
 
         echo $carrusel;

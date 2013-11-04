@@ -67,7 +67,7 @@ class Caricatura_Widget extends WP_Widget
                 $caricatura .= '<div class="item">';
             }
 
-            $caricatura .= '<ul class="thumbnails sociales-thumbnails">';
+            $caricatura .= '<ul class="thumbnails caricatura-thumbnails">';
 
             $imagen = get_featured_image($post->ID);
             $src= getphpthumburl($imagen, 'w=346&h=346&zc=1&iar=1');
@@ -87,12 +87,13 @@ class Caricatura_Widget extends WP_Widget
         }
 
         $caricatura .= '</div>';
-        $caricatura .= '<a data-slide="prev" href="#caricaturamain"  class="left sociales-carousel-control">&lt;</a>';
-        $caricatura .= '<a data-slide="next" href="#caricaturamain"  class="right sociales-carousel-control">&gt;</a>';
+        $caricatura .= '<a data-slide="prev" href="#caricaturamain"  class="left caricatura-carousel-control">&nbsp;</a>';
+        $caricatura .= '<a data-slide="next" href="#caricaturamain"  class="right caricatura-carousel-control">&nbsp;</a>';
         $caricatura .= '</div>';
 
 
         $caricatura .= '<script type="text/javascript">jQuery(document).ready(function($) {';
+        $caricatura .= "$('#caricaturamain').carousel({pause: true,interval: false});";
         $caricatura .= "$('[data-toggle=\"modal\"]').click(function(e) {e.preventDefault();var imagen_sociales = $(this).data('img');var caption_sociales = $(this).data('caption');$('.modal-body #imagen_caricatura_modal').attr('src', imagen_sociales);$('.modal-footer').html('<p>'+ caption_sociales +'</p>');});";
         $caricatura .= '});</script>';
         $caricatura .= '<div id="carruselCaricatura" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">';
