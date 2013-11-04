@@ -332,17 +332,23 @@ function wp_get_attachment($attachment_id)
  * @param $id
  * @return array()
  */
-function get_featured_image($id)
+function get_featured_image($id, $remove_http=true)
 {
     global $wpdb, $theme_options, $post;
 
     $q = "SELECT guid FROM $wpdb->posts WHERE post_parent = '{$id}' AND post_type='attachment' AND (post_mime_type='image/jpeg' OR post_mime_type='image/gif' OR post_mime_type='image/png') ORDER BY post_date ASC LIMIT 1";
     $imagen = $wpdb->get_var($q);
 
+
     if ($imagen) {
+
+        if($remove_http){
+            $imagen = str_replace(get_site_url(), '', $imagen);
+        }
+
         return $imagen;
     }
-    return  get_bloginfo('template_url') . '/assets/img/placeholder.png';
+    return  'wp-content/themes/mrc/assets/img/placeholder.png';
 
 }
 

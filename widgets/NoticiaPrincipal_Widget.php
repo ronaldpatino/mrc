@@ -58,7 +58,7 @@ class NoticiaPrincipal extends WP_Widget {
 
             $imagen = get_featured_image($post->ID);
             $src= getphpthumburl($imagen, 'w=762&h=364&zc=1&q=90');
-            $noticia .= '<a href="' . $permalink . '"><img src="' . $src . '" alt="' . $post->post_title . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay" title="' . $post->post_title . ' - ' . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay"></a>';
+            $noticia .= '<a href="' . $permalink . '"><img src="' . $src . '" width="762" height="364" alt="' . $post->post_title . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay" title="' . $post->post_title . ' - ' . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay"></a>';
             $noticia .= '<p><a href="' .$permalink . '">'. get_summary(limpia_contenido($post->post_content)) . '</a> </p>';
         }
 
