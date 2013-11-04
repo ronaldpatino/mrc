@@ -24,6 +24,18 @@ class Seccion_Widget extends WP_Widget
 
         global $wpdb, $post;
 
+
+        $sql_taxonomy = "SELECT
+                            term_taxonomy_id, term_id, taxonomy
+                         FROM
+                            wp_04vcw8_term_taxonomy
+                         WHERE
+                            term_id = {$NOTICIA_SECCION}
+                         AND
+                            taxonomy = 'category'";
+
+        $codigoSeccion = $wpdb->get_row($sql_taxonomy);
+
         $sql = "SELECT
                   *
                 FROM
@@ -31,7 +43,7 @@ class Seccion_Widget extends WP_Widget
                 INNER JOIN
                     wp_04vcw8_term_relationships ON (wp_04vcw8_posts.ID = wp_04vcw8_term_relationships.object_id)
                 WHERE
-                    ( wp_04vcw8_term_relationships.term_taxonomy_id IN ({$NOTICIA_SECCION}) )
+                    ( wp_04vcw8_term_relationships.term_taxonomy_id IN ({$codigoSeccion->term_taxonomy_id}) )
                 AND
                     wp_04vcw8_posts.post_type = 'post'
                 AND (wp_04vcw8_posts.post_status = 'publish')
