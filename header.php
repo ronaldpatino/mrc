@@ -22,7 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="<?php bloginfo('template_url'); ?>/assets/css/elmercurio.css.php" rel="stylesheet">
-
+    <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/assets/scripts/elmercurio.js.php"></script>
     <?php wp_head(); ?>
 
 </head>

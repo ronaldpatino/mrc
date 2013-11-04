@@ -1,5 +1,4 @@
 <?php wp_footer(); ?>
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/assets/scripts/elmercurio.js.php"></script>
 <script type="text/javascript">
     jQuery(document).ready(function($) {
         var tw;  $('.carousel').carousel({interval: 4000});
