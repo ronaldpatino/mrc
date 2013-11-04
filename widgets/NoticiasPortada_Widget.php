@@ -20,7 +20,7 @@ class NoticiasPortada extends WP_Widget
     {
 
         if (!isset($instance['numberposts'])) { $instance['numberposts'] = $this->max_noticias;}
-        $NOTICIA_PORTADA = 54;
+        $NOTICIA_PORTADA = get_id_real(54);
         global $wpdb, $post;
 
         $sql = "    SELECT
