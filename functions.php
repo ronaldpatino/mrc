@@ -307,6 +307,27 @@ function get_fecha()
 
 
 /**************************************************************/
+
+
+function get_id_real($id)
+{
+    global $wpdb, $post;
+
+    $sql_taxonomy = "SELECT
+                            term_taxonomy_id, term_id, taxonomy
+                         FROM
+                            wp_04vcw8_term_taxonomy
+                         WHERE
+                            term_id = {$id}
+                         AND
+                            taxonomy = 'category'";
+
+    $codigoSeccion = $wpdb->get_row($sql_taxonomy);
+    return $codigoSeccion->term_taxonomy_id;
+
+}
+
+
 /**
  * Retorna un array con los attachments del post
  * @param $attachment_id

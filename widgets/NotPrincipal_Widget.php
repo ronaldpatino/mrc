@@ -21,7 +21,8 @@ class NotPrincipal_Widget extends WP_Widget {
 
 
 
-        $NOTICIA_NOTPRINCIPAL_SECCION = $instance['categoria'];
+        $NOTICIA_NOTPRINCIPAL_SECCION = get_id_real($instance['categoria']);
+        $NOTICIA_DESTACADA_SECCION = get_id_real(53);
 
         global $wpdb, $post;
 
@@ -31,9 +32,9 @@ class NotPrincipal_Widget extends WP_Widget {
                 WHERE  ( (
                                     SELECT COUNT(1)
                                     FROM wp_04vcw8_term_relationships
-                                    WHERE term_taxonomy_id IN ($NOTICIA_NOTPRINCIPAL_SECCION, 53)
+                                    WHERE term_taxonomy_id IN ($NOTICIA_NOTPRINCIPAL_SECCION, $NOTICIA_DESTACADA_SECCION)
                                     AND object_id = wp_04vcw8_posts.ID
-                                ) = 1 )
+                                ) = 2 )
                 AND
                     wp_04vcw8_posts.post_type = 'post'
                 AND (wp_04vcw8_posts.post_status = 'publish')
