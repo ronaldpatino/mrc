@@ -43,7 +43,7 @@ define('email_exists', 32);
 define('first_name_error', 64);
 define('last_name_error', 128);
 define('cedula_error', 256);
-
+define('WEBSITE_URL',get_site_url());
 
 
 
@@ -343,7 +343,7 @@ function get_featured_image($id, $remove_http=true)
     if ($imagen) {
 
         if($remove_http){
-            $imagen = str_replace(get_site_url(), '', $imagen);
+            $imagen = str_replace(WEBSITE_URL, '', $imagen);
         }
 
         return $imagen;
