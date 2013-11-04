@@ -74,7 +74,7 @@ class Farandula_Widget extends WP_Widget
             $farandula .= "<li class='span12'>";
 
             $farandula .= '<a href="' . $permalink . '">';
-            $farandula .= '<img class="img_farandula" src="' . $src . '" alt="' . $post->post_title . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay" title="' . $post->post_title . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay">';
+            $farandula .= '<img class="img_farandula" widht="390" height="355" src="' . $src . '" alt="' . $post->post_title . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay" title="' . $post->post_title . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay">';
             $farandula .= "<div class='carousel-caption carousel-caption_imagenes_noticia'>";
             $farandula .= '<p>' . $post->post_title . '</p>';
             $farandula .= '</div>';
@@ -86,8 +86,8 @@ class Farandula_Widget extends WP_Widget
         }
 
         $farandula .= '</div>';
-        $farandula .= '<a data-slide="prev" href="#farandulamain"  class="left sociales-carousel-control">&lt;</a>';
-        $farandula .= '<a data-slide="next" href="#farandulamain"  class="right sociales-carousel-control">&gt;</a>';
+        $farandula .= '<a data-slide="prev" href="#farandulamain"  class="left farandula-carousel-control">&nbsp;</a>';
+        $farandula .= '<a data-slide="next" href="#farandulamain"  class="right farandula-carousel-control">&nbsp;</a>';
         $farandula .= '</div>';
 
         echo $farandula;
