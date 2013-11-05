@@ -53,7 +53,7 @@ class NotSecundariaLista extends WP_Widget {
                     wp_04vcw8_posts.ID
                 ORDER BY
                     wp_04vcw8_posts.post_date
-                ASC
+                DESC
                 LIMIT 0, 20";
 
 
