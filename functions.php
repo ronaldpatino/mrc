@@ -16,8 +16,7 @@ require_once('widgets/Caricatura_Widget.php');
 require_once('widgets/Opinion_Widget.php');
 
 
-add_theme_support( 'post-thumbnails' );
-add_image_size( 'noticia-single-imagen', 660, 330, true );
+
 add_filter( 'comment_text', 'wp_filter_nohtml_kses' );
 add_filter( 'comment_text_rss', 'wp_filter_nohtml_kses' );
 add_filter( 'comment_excerpt', 'wp_filter_nohtml_kses' );
