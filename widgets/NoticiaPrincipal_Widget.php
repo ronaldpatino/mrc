@@ -57,7 +57,8 @@ class NoticiaPrincipal extends WP_Widget {
             $noticia .= '<h2><a href="' . $permalink . '">' . $post->post_title . '</a></h2>';
 
             $imagen = get_featured_image($post->ID);
-            $src= getphpthumburl($imagen, 'w=762&h=364&zc=1&q=90');
+            //$src= 'thumbs/714x341/wp-content/uploads/2013/10/phpThumb_generated_thumbnailjpg.jpg';//getphpthumburl($imagen, 'w=762&h=364&zc=1&q=90');
+            $src= 'thumbs/714x341/' . $imagen;
             $noticia .= '<a href="' . $permalink . '"><img src="' . $src . '" width="762" height="364" alt="' . $post->post_title . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay" title="' . $post->post_title . ' - ' . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay"></a>';
             $noticia .= '<p><a href="' .$permalink . '">'. get_summary(limpia_contenido($post->post_content)) . '</a> </p>';
         }
