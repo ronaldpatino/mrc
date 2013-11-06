@@ -5,9 +5,8 @@
             <div class='navbar-pie nomargen-abajo'>
                 <div class='navbar-inner-pie nav-collapse-pie' style="height: auto;">
                     <ul class="nav-pie">
-                        <li><a href="#">Agencias</a></li>
-                        <li><a href="#">Quienes Somos</a></li>
-                        <li><a href="#">Contacto</a></li>
+                        <li><a href="<?php echo get_home_url()?>/quienes-somos">Quienes Somos</a></li>
+                        <li><a href="<?php echo get_home_url()?>/agencias">Agencias</a></li>
                         <li><a href="http://clasificados.elmercurio.com.ec" target="_blank">Clasificados</a></li>
                         <li><a href="#">Hemeroteca</a></li>
                     </ul>
