@@ -47,7 +47,8 @@ if (!$twitter_result) { // cache doesn't exist or is older than 10 mins
         $title = isset($v['entities']['urls'][0]['expanded_url'])?$v['entities']['urls'][0]['expanded_url']:'El Mercurio  Cuenca - Noticias Ecuador Azuay';
         $target = isset($v['entities']['urls'][0]['expanded_url'])?'target="_blank"':'';
         $media = isset($v['entities']['media'][0]['media_url_https'])?' data-trigger="hover" data-placement="top" rel="popover" data-image="' . $v['entities']['media'][0]['media_url_https'] . '"':'';
-        $html_links  = '<a  id="t_'. $v['id_str'] .'" '. $media .  ' href="'.$href . '" ' . $target .'><strong>' . $fecha . '</strong> - ' . $v['text'] .  '</a>';
+        $icono = isset($v['entities']['media'][0]['media_url_https'])?'<i class="icon-picture icon-white"> </i>':'';
+        $html_links  = '<a  id="t_'. $v['id_str'] .'" '. $media .  ' href="'.$href . '" ' . $target .'><strong>' . $fecha . '</strong> - ' . $icono . ' ' . $v['text'] .  '</a>';
         $html_links .= (!empty($media))?'<img style="display: none;" src="' . $v['entities']['media'][0]['media_url_https'] . '"/>':'';
         $json[] = array('created_at'=>$v['created_at'],'text'=>$html_links);
     }
@@ -72,7 +73,8 @@ if (!$twitter_result) { // cache doesn't exist or is older than 10 mins
         $title = isset($v['entities']['urls'][0]['expanded_url'])?$v['entities']['urls'][0]['expanded_url']:'El Mercurio  Cuenca - Noticias Ecuador Azuay';
         $target = isset($v['entities']['urls'][0]['expanded_url'])?'target="_blank"':'';
         $media = isset($v['entities']['media'][0]['media_url_https'])?' data-trigger="hover" data-placement="top" rel="popover" data-image="' . $v['entities']['media'][0]['media_url_https'] . '"':'';
-        $html_links  = '<a  id="t_'. $v['id_str'] .'" '. $media .  ' href="'.$href . '" ' . $target .'><strong>' . $fecha . '</strong> - ' . $v['text'] .  '</a>';
+        $icono = isset($v['entities']['media'][0]['media_url_https'])?'<i class="icon-picture icon-white"> </i>':'';
+        $html_links  = '<a  id="t_'. $v['id_str'] .'" '. $media .  ' href="'.$href . '" ' . $target .'><strong>' . $fecha . '</strong> - ' . $icono . ' ' . $v['text'] .  '</a>';
         $html_links .= (!empty($media))?'<img style="display: none;" src="' . $v['entities']['media'][0]['media_url_https'] . '"/>':'';
         $json[] = array('created_at'=>$v['created_at'],'text'=>$html_links);
 
