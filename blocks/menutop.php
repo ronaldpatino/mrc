@@ -18,6 +18,7 @@
                     <li <?php echo menu_activo('farandula');?>><a href="<?php echo get_home_url()?>/farandula" class="farandula">FARANDULA</a></li>
                     <li <?php echo menu_activo('mundo');?>><a href="<?php echo get_home_url()?>/mundo" class="mundo">MUNDO</a></li>
                     <li <?php echo menu_activo('opinion');?>><a href="<?php echo get_home_url()?>/opinion" class="opinion">OPINION</a></li>
+                    <li <?php echo menu_activo('defunciones');?>><a href="<?php echo get_home_url()?>/defunciones" class="defunciones">DEFUNCIONES</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>

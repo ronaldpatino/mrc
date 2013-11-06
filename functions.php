@@ -1288,7 +1288,7 @@ function get_seccion()
 
 	if ($seccion === 'sucesos')
 	{
-		$seccion= get_category_by_slug('loja')->term_id;
+		$seccion= get_category_by_slug('policial')->term_id;
 	}
 
 	else if ($seccion === 'austro')

@@ -8,7 +8,7 @@
                         <li><a href="#">Agencias</a></li>
                         <li><a href="#">Quienes Somos</a></li>
                         <li><a href="#">Contacto</a></li>
-                        <li><a href="#">Clasificados</a></li>
+                        <li><a href="http://clasificados.elmercurio.com.ec" target="_blank">Clasificados</a></li>
                         <li><a href="#">Hemeroteca</a></li>
                     </ul>
                 </div>

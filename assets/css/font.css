@@ -63,6 +63,10 @@ a{
     background-color: #7F6E94 !important;
 }
 
+.defunciones:hover{
+    background-color: #296a87 !important;
+}
+
 .breadcrumb > li:first-child {
     font-size: 14px;
     text-shadow: black 0.1em 0.1em 0.2em;

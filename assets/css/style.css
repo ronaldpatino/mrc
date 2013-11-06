@@ -222,6 +222,16 @@ div.navbar-menu .nav > li > a.opinion:hover, div.subnav .nav > li.active > a.opi
     color: #FFFFFF !important;
 }
 
+
+.defunciones{
+    color: #296a87 !important;
+}
+div.navbar-menu .nav > li > a.defunciones:hover, div.subnav .nav > li.active > a.defunciones:hover {
+    background-color: #296a87;
+    border-color: transparent;
+    color: #FFFFFF !important;
+}
+
 /*end Menu*/
 
 /*Mas leido*/
