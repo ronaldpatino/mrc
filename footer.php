@@ -12,8 +12,7 @@
                 tw=setInterval(function(){ tick () }, 10000);
                 $('#twitterlist').mouseover(function(){clearInterval(tw);}).mouseout(function(){tw = setInterval(function(){ tick () }, 10000);})
             }).fail(function() { });
-        function get_popover_content(){var thisVal=$(this);if ($(this).attr('data-image')) {var img = '<img src="' + $(this).attr('data-image') + '" />';thisVal.attr('data-content',img);}
-        }
+        function get_popover_content(){var thisVal=$(this);if ($(this).attr('data-image')) {var img = '<img src="' + $(this).attr('data-image') + '" />';thisVal.attr('data-content',img);}}
     });
 
 </script>
