@@ -19,6 +19,9 @@ class MasLeidas_Widget extends WP_Widget {
 
         if (!isset($instance['numberposts'])) {$instance['numberposts']= $this->max_noticias;}
         global $wpdb, $post;
+        $date = date('Y-m-d');
+        $date_semana = date ( 'Y-m-d', strtotime ( '-7 day' . $date ) );
+
         $sql = "SELECT
                    *
                 FROM
@@ -31,11 +34,16 @@ class MasLeidas_Widget extends WP_Widget {
                     wp_04vcw8_posts.post_status='publish'
                 AND
                     wp_04vcw8_posts.post_type='post'
-
+                AND
+                    wp_04vcw8_posts.post_date <= '{$date}'
+				AND
+                    wp_04vcw8_posts.post_date >= '{$date_semana}'
+                AND
+                    wp_04vcw8_postmeta.meta_value+0 > 0
                 ORDER BY
                     wp_04vcw8_postmeta.meta_value+0
                 DESC
-				LIMIT 0,{$instance['numberposts']}";
+				  LIMIT 0,{$instance['numberposts']}";
 
         $noticiasMasLeidas = $wpdb->get_results($sql);
 
