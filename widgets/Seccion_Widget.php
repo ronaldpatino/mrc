@@ -61,8 +61,7 @@ class Seccion_Widget extends WP_Widget
                 $post_imprimir .= '<a href="' . $permalink . '">' . $post->post_title . '</a></h3>';
 
                 $imagen = get_featured_image($post->ID);
-                $src = getphpthumburl($imagen, 'w=332&h=260&zc=1');
-
+                $src= 'thumbs/332x260/' . $imagen;
 
 
                 $post_imprimir .= '<a href="' . $permalink . '">' . '<img src="' . $src . '" alt="' . $post->post_title . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay" title="' . $post->post_title . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay">' . '</a>';
@@ -74,8 +73,7 @@ class Seccion_Widget extends WP_Widget
                 $post_imprimir .= '<a class="pull-left" href="' . $permalink . '">';
 
                 $imagen = get_featured_image($post->ID);
-                $src = getphpthumburl($imagen, 'w=120&h=74&zc=1');
-
+                $src= 'thumbs/120x74/' . $imagen;
                 $post_imprimir .= '<img src="' . $src . '" alt="' . $post->post_title . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay"' . '" title="' . $post->post_title . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay">';
                 $post_imprimir .= '</a>';
                 $post_imprimir .= '<div class="media-body media-body-tricol">' . '<a class="pull-left" href="' . $permalink . '">' . $post->post_title . '</a></div>';
