@@ -83,10 +83,10 @@ class Multimedia_Widget extends WP_Widget
 
             $imagen = get_featured_image($post->ID);
             if ($NOTICIA_MULTIMEDIA == 4252){
-                $src= thumb_multimedia($imagen, 'w=180&h=180&zc=1');
+                $src= 'thumbs/180x180/' . $imagen;
             }
             else{
-                $src= thumb_multimedia($imagen, 'w=230&h=164&zc=1');
+                $src= 'thumbs/230x164/' . $imagen;
             }
 
 
