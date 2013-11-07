@@ -85,8 +85,7 @@ class NotSecundariaLista extends WP_Widget {
                 $noticia_secundaria_lista_seccion .= '<a class="pull-left" href="' . get_permalink() .'">';
 
                 $imagen = get_featured_image($post->ID);
-                $src= getphpthumburl($imagen, 'w=120&h=74&zc=1&q=90');
-
+                $src= 'thumbs/120x74/' . $imagen;
 
                 $noticia_secundaria_lista_seccion .= '<img src="' . $src . '" alt="' . $post->post_title . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay" title="' . $post->post_title . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay">';
                 $noticia_secundaria_lista_seccion .= '</a>';
