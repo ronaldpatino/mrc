@@ -70,8 +70,8 @@ class Caricatura_Widget extends WP_Widget
             $caricatura .= '<ul class="thumbnails caricatura-thumbnails">';
 
             $imagen = get_featured_image($post->ID);
-            $src= getphpthumburl($imagen, 'w=346&h=346&zc=1&iar=1');
-            $src_big= getphpthumburl($imagen, 'w=400&h=400&iar=1');
+            $src= 'thumbs/346x346/' . $imagen;
+            $src_big= 'thumbs/400x400/' . $imagen;
 
             $caricatura .= "<li class='span12'>";
             $caricatura .= '<a href="#carruselCaricatura" data-caption=" ' . $post->post_title . '"  data-img="' . $src_big . '" data-toggle="modal">';
