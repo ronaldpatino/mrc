@@ -80,8 +80,8 @@ class Carrusel_Widget extends WP_Widget
             $carrusel .= '<div class="thumbnail sociales-thumbnails-item">';
 
             $imagen = get_featured_image($post->ID);
-            $src= getphpthumburl($imagen, 'w=280&h=164&zc=1&iar=1'); //zc=1
-            $src_big= getphpthumburl($imagen, 'w=400');
+            $src= 'thumbs/280x164/' . $imagen;
+            $src_big= 'thumbs/400x400/' . $imagen;
             
             $carrusel .= '<a href="#' . $carrusel_modal . '" data-caption=" ' . $post->post_title . '"  data-img=" ' . $src_big . '" data-toggle="modal">';
             $carrusel .= '<img src="' . $src . '" alt="' . $post->post_title . '" title="' . $post->post_title . '">';
