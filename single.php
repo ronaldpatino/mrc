@@ -63,8 +63,7 @@
                 if (has_post_thumbnail()) {
 
                     $imagen = get_featured_image(get_the_ID());
-                    $src= 'thumbs/332x260/' . $imagen;
-
+                    $src= '/thumbs/332x260/' . $imagen;
                     echo '<img  src="' . $src . '" ' . 'alt="' . get_the_title() . ' - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay" title="' . get_the_title() . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay" >';
 
                 }
