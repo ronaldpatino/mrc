@@ -59,7 +59,7 @@ class PortadaImpresa extends WP_Widget {
             $impreso .= '<li class="span12 thumbnail portada" style="text-align: center;"><h3>Portada</h3>';
 
             $imagen = get_featured_image($post->ID);
-            $src= 'thumbs/276x95/' . $imagen;
+            $src= 'thumbs/95x276/' . $imagen;
 
             $impreso .= '<img src="' . $src . '" alt="' . $post->post_title . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay" title="' . $post->post_title . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay">';
             $impreso .= '</li></ul>';
