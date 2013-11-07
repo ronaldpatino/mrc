@@ -65,7 +65,7 @@ class NoticiasPortada extends WP_Widget
 
             if ($izquierda <= 5) {
                 $imagen = get_featured_image($post->ID);
-                $src= getphpthumburl($imagen, 'w=295&h=154&zc=1');
+                $src= 'thumbs/295x154/' . $imagen;
 
                 $noticia_col_izq .= '<li class="span12 nomargen-abajo"><div class="thumbnail thumbnail-custom">';
                 $noticia_col_izq .= '<a href="' . $permalink . '"><img class="img-cultura" src="' . $src . '" alt="' . $post->post_title . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay" title="' . $post->post_title . ' - ' . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay"></a>';
@@ -76,7 +76,8 @@ class NoticiasPortada extends WP_Widget
             } else if ($derecha <= 5 && $izquierda == 6) {
 
                 $imagen = get_featured_image($post->ID);
-                $src= getphpthumburl($imagen, 'w=295&h=154&zc=1');
+                $src= 'thumbs/295x154/' . $imagen;
+                
                 $noticia_col_der .= '<li class="span12 nomargen-abajo"><div class="thumbnail thumbnail-custom">';
                 $noticia_col_der .= '<a href="' . $permalink . '"><img  class="img-cultura" src="' . $src . '" alt="' . $post->post_title . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay" title="' . $post->post_title . ' - ' . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay"></a>';
                 $noticia_col_der .= '<h3 style="height:65px;"><a href="' .$permalink . '">' . $post->post_title . '</a></h3>';
