@@ -80,7 +80,9 @@
 
                         if ($primero) {
 
-                            $src= getphpthumburl($attachment->guid, 'w=310&h=350&zc=1');
+
+                            $imagen = get_featured_image($attachment->guid);
+                            $src= '/thumbs/310x350/' . $imagen;
 
                             $cadena = '<div class="active item">';
                             $cadena .= "<img  src='{$src}' alt='{$attachment->post_excerpt}  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay' title='{$attachment->post_excerpt}  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay'/>";
@@ -92,7 +94,9 @@
 
                         } else {
 
-                            $src= getphpthumburl($attachment->guid, 'w=310&h=350&zc=1');
+                            $imagen = get_featured_image($attachment->guid);
+                            $src= '/thumbs/310x350/' . $imagen;
+
                             $cadena .= '<div class="item">';
                             $cadena .= "<img  src='{$src}' alt='{$attachment->post_excerpt}   - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay' title='{$attachment->post_excerpt}  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay'/>";
                             $cadena .= "<div class='carousel-caption carousel-caption_imagenes_noticia'>";
