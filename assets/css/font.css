@@ -1,5 +1,15 @@
+@font-face {
+    font-family: 'GeorgiaRegular';
+    src: url('../font/georgia.eot');
+    src: url('../font/georgia.eot') format('embedded-opentype'),
+    url('../font/georgia.woff') format('woff'),
+    url('../font/georgia.ttf') format('truetype'),
+    url('../font/georgia.svg#GeorgiaRegular') format('svg');
+}
+
+
 body{
-    font-family: Georgia, Times, "Times New Roman", serif;
+    font-family: GeorgiaRegular, Times, "Times New Roman", serif;
     line-height: 1.5;
 }
 
@@ -79,7 +89,7 @@ a{
 }
 
 .main > h2{
-    font-family: Georgia, Times, "Times New Roman", serif;
+    font-family: GeorgiaRegular, Times, "Times New Roman", serif;
     font-size: 2rem;
     font-weight: normal;
     line-height: 105%
@@ -97,7 +107,7 @@ a{
 
 
 .main > h3{
-    font-family: Georgia, Times, "Times New Roman", serif;
+    font-family: GeorgiaRegular, Times, "Times New Roman", serif;
     font-size: 1.4rem;
     font-weight: normal;
     line-height: 105%
@@ -110,7 +120,7 @@ a{
 
 
 .thumbnail-custom h3{
-    font-family: Georgia, Times, "Times New Roman", serif;
+    font-family: GeorgiaRegular, Times, "Times New Roman", serif;
     font-size: 1.2rem;
     font-weight: normal;
     line-height: 105%;
@@ -140,7 +150,7 @@ a{
 
 
 .sidebar > h2 {
-    font-family: Georgia, Times, "Times New Roman", serif;
+    font-family: GeorgiaRegular, Times, "Times New Roman", serif;
     font-size: 1.2rem;
     font-weight: normal;
     line-height: 105%;
@@ -154,7 +164,7 @@ a{
 
 
 .portada > h3{
-    font-family: Georgia, Times, "Times New Roman", serif;
+    font-family: GeorgiaRegular, Times, "Times New Roman", serif;
     font-size: 1.2rem;
     font-weight: normal;
     line-height: 105%;
@@ -162,7 +172,7 @@ a{
 }
 
 .noticia-tricol > h2 {
-    font-family: Georgia, Times, "Times New Roman", serif;
+    font-family: GeorgiaRegular, Times, "Times New Roman", serif;
     font-size: 1.5rem;
     font-weight: normal;
     color: #ffffff !important;
@@ -186,7 +196,7 @@ a{
 }
 
 #tricoldeportes > h2{
-    font-family: Georgia, Times, "Times New Roman", serif;
+    font-family: GeorgiaRegular, Times, "Times New Roman", serif;
     font-size: 1.5rem;
     font-weight: normal;
     color: #ffffff;
@@ -199,7 +209,7 @@ a{
 }
 
 #deportivocuenca h2{
-    font-family: Georgia, Times, "Times New Roman", serif;
+    font-family: GeorgiaRegular, Times, "Times New Roman", serif;
     font-size: 1.5rem;
     font-weight: normal;
 
@@ -222,7 +232,7 @@ a{
 
 
 #sociales h2{
-    font-family: Georgia, Times, "Times New Roman", serif;
+    font-family: GeorgiaRegular, Times, "Times New Roman", serif;
     font-size: 1.5rem;
     font-weight: normal;
 
@@ -237,7 +247,7 @@ a{
 
 
 #opinion h2{
-    font-family: Georgia, Times, "Times New Roman", serif;
+    font-family: GeorgiaRegular, Times, "Times New Roman", serif;
     font-size: 1.5rem;
     font-weight: normal;
 
@@ -254,7 +264,7 @@ a{
 
     margin: 0 0 3px 0;
 
-font-family: Georgia,Times,"Times New Roman",serif;
+font-family: GeorgiaRegular,Times,"Times New Roman",serif;
     font-size: 1.2rem;
     font-weight: normal;
     line-height: 105%;
@@ -283,7 +293,7 @@ font-family: Georgia,Times,"Times New Roman",serif;
 }
 
 #multimedia h2{
-    font-family: Georgia, Times, "Times New Roman", serif;
+    font-family: GeorgiaRegular, Times, "Times New Roman", serif;
     font-size: 1.5rem;
     font-weight: normal;
 
@@ -301,7 +311,7 @@ font-family: Georgia,Times,"Times New Roman",serif;
 }
 
 #suplementos h2{
-    font-family: Georgia, Times, "Times New Roman", serif;
+    font-family: GeorgiaRegular, Times, "Times New Roman", serif;
     font-size: 1.5rem;
     font-weight: normal;
     color: #ffffff;
@@ -363,7 +373,7 @@ font-family: Georgia,Times,"Times New Roman",serif;
 }
 
 header > h2{
-    font-family: Georgia, Times, "Times New Roman", serif;
+    font-family: GeorgiaRegular, Times, "Times New Roman", serif;
     font-size: 2rem;
     font-weight: normal;
     line-height: 105%;
@@ -371,7 +381,7 @@ header > h2{
 }
 
 .media-body > h3 {
-    font-family: Georgia, Times, "Times New Roman", serif;
+    font-family: GeorgiaRegular, Times, "Times New Roman", serif;
     font-size: 1.2rem;
     font-weight: normal;
     line-height: 105%;
@@ -389,7 +399,7 @@ header > h2{
 
 .primary-content > p > strong{
 
-    font-family: Bitter,Georgia,serif;
+    font-family: Bitter,GeorgiaRegular,serif;
     color: #000000;
     font-size: 1.5rem;
     font-weight: normal;
