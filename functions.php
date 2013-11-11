@@ -368,7 +368,7 @@ function get_featured_image($id, $remove_http=true)
 {
     global $wpdb, $theme_options, $post;
 
-    $q = "SELECT guid FROM $wpdb->posts WHERE post_parent = '{$id}' AND post_type='attachment' AND (post_mime_type='image/jpeg' OR post_mime_type='image/gif' OR post_mime_type='image/png') ORDER BY post_date ASC LIMIT 1";
+    $q = "SELECT guid FROM $wpdb->posts WHERE post_parent = '{$id}' AND post_type='attachment' AND (post_mime_type='image/jpeg' OR post_mime_type='image/png') ORDER BY post_date DESC LIMIT 1";
     $imagen = $wpdb->get_var($q);
 
 
@@ -384,6 +384,55 @@ function get_featured_image($id, $remove_http=true)
 
 }
 
+function get_attached_image($id, $remove_http=true)
+{
+    global $wpdb, $theme_options, $post;
+
+    $q = "SELECT guid FROM $wpdb->posts WHERE ID = '{$id}' AND post_type='attachment' AND (post_mime_type='image/jpeg' OR post_mime_type='image/png') ORDER BY post_date ASC LIMIT 1";
+    $imagen = $wpdb->get_var($q);
+
+
+    if ($imagen) {
+
+        if($remove_http){
+            $imagen = str_replace(WEBSITE_URL, '', $imagen);
+        }
+
+        return $imagen;
+    }
+    return  'wp-content/themes/mrc/assets/img/placeholder.png';
+
+}
+
+
+/**
+ * @param $imagen
+ * @return mixed|string
+ */
+function strip_url_image($imagen)
+{
+    if ($imagen) {
+        $imagen = str_replace(WEBSITE_URL, '', $imagen);
+        return $imagen;
+    }
+    return  'wp-content/themes/mrc/assets/img/placeholder.png';
+
+}
+
+/**
+ *
+ */
+function the_post_thumbnail_caption() {
+    global $post;
+
+    $thumbnail_id    = get_post_thumbnail_id($post->ID);
+    $thumbnail_image = get_posts(array('p' => $thumbnail_id, 'post_type' => 'attachment'));
+
+    if ($thumbnail_image && isset($thumbnail_image[0])) {
+        return $thumbnail_image[0]->post_excerpt;
+    }
+    return '';
+}
 
 /*Noticia principal*/
 /**
