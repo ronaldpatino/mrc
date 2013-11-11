@@ -2339,3 +2339,9 @@ li{
 
 }
 
+.carousel-inner>.itembg{
+    background-color: #ABABAB;
+}
+.carousel-inner>.itembg>img {
+    margin: 0 auto;
+}
