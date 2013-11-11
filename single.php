@@ -59,49 +59,59 @@
                 </header>
 
                 <?php
-
+                $cadena = '';
+                $primero = true;
                 if (has_post_thumbnail()) {
 
                     $imagen = get_featured_image(get_the_ID());
-                    $src= '/thumbs/685x340/' . $imagen;
-                    echo '<img  src="' . $src . '" ' . 'alt="' . get_the_title() . ' - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay" title="' . get_the_title() . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay" >';
+                    $src= '/thumbs/685x340xS/' . $imagen;
 
+                    $cadena .= '<div class="active item itembg">';
+                    $cadena .= "<img  src='{$src}' alt='" . get_the_title() . "  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay' title='" . get_the_title() . "  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay'/>";
+
+                    $caption = the_post_thumbnail_caption();
+                    if (strlen($caption)){
+                        $cadena .= "<div class='carousel-caption carousel-caption_imagenes_noticia'>";
+                        $cadena .= "<p>{$caption}</p>";
+                        $cadena .= '</div>';
+                    }
+                    $cadena .= '</div>';
+                    $primero = false;
                 }
 
                 $has_attachment = false;
                 $attachments = mrc_get_image_attachments(get_the_ID());
 
                 if ($attachments) {
-
                     $has_attachment = true;
-                    $primero = true;
-
                     foreach ($attachments as $attachment) {
 
                         if ($primero) {
+                            $imagen = strip_url_image($attachment->guid);
+                            $src= '/thumbs/685x340xS/' . $imagen;
 
-
-                            $imagen = get_featured_image($attachment->guid);
-                            $src= '/thumbs/310x350/' . $imagen;
-
-                            $cadena = '<div class="active item">';
+                            $cadena .= '<div class="active item itembg">';
                             $cadena .= "<img  src='{$src}' alt='{$attachment->post_excerpt}  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay' title='{$attachment->post_excerpt}  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay'/>";
-                            $cadena .= "<div class='carousel-caption carousel-caption_imagenes_noticia'>";
-                            $cadena .= "<p>{$attachment->post_excerpt}</p>";
-                            $cadena .= '</div>';
+                            if (strlen($attachment->post_excerpt)){
+                                $cadena .= "<div class='carousel-caption carousel-caption_imagenes_noticia'>";
+                                $cadena .= "<p>{$attachment->post_excerpt}</p>";
+                                $cadena .= '</div>';
+                            }
                             $cadena .= '</div>';
                             $primero = false;
 
                         } else {
 
-                            $imagen = get_featured_image($attachment->guid);
-                            $src= '/thumbs/310x350/' . $imagen;
+                            $imagen = strip_url_image($attachment->guid);
+                            $src= '/thumbs/685x340xS/' . $imagen;
 
-                            $cadena .= '<div class="item">';
+                            $cadena .= '<div class="item itembg">';
                             $cadena .= "<img  src='{$src}' alt='{$attachment->post_excerpt}   - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay' title='{$attachment->post_excerpt}  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay'/>";
-                            $cadena .= "<div class='carousel-caption carousel-caption_imagenes_noticia'>";
-                            $cadena .= "<p>{$attachment->post_excerpt}</p>";
-                            $cadena .= '</div>';
+                            if (strlen($attachment->post_excerpt)){
+                                $cadena .= "<div class='carousel-caption carousel-caption_imagenes_noticia'>";
+                                $cadena .= "<p>{$attachment->post_excerpt}</p>";
+                                $cadena .= '</div>';
+                            }
                             $cadena .= '</div>';
 
                         }
@@ -109,6 +119,23 @@
                 }
 
                 ?>
+                <?php if ($has_attachment): ?>
+
+                    <br/>
+
+                    <div id="imagenes_noticia" class="carousel slide">
+                        <!-- Carousel items -->
+                        <div class="carousel-inner">
+                            <?php echo $cadena; ?>
+                        </div>
+                        <!-- Carousel nav -->
+                        <a class="carousel-control left" href="#imagenes_noticia" data-slide="prev">&lsaquo;</a>
+                        <a class="carousel-control right" href="#imagenes_noticia" data-slide="next">&rsaquo;</a>
+
+                    </div>
+
+                <?php endif; ?>
+
 
                 <?php the_content(); ?>
                 <hr/>
@@ -128,42 +155,6 @@
         </div>
 
         <div class='span4 sidebar'>
-
-
-            <?php if ($has_attachment): ?>
-
-                <br/>
-
-                <div id="imagenes_noticia" class="carousel slide">
-
-                    <ol class="carousel-indicators">
-
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-
-                    </ol>
-
-                    <!-- Carousel items -->
-
-                    <div class="carousel-inner">
-
-                        <?php echo $cadena; ?>
-
-
-                    </div>
-
-                    <!-- Carousel nav -->
-
-                    <a class="carousel-control left" href="#imagenes_noticia" data-slide="prev">&lsaquo;</a>
-
-                    <a class="carousel-control right" href="#imagenes_noticia" data-slide="next">&rsaquo;</a>
-
-                </div>
-
-            <?php endif; ?>
 
             <?php if (dynamic_sidebar('detallenoticia')) : else : endif; ?>
 
