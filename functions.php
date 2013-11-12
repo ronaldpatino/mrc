@@ -1390,3 +1390,114 @@ function get_summary($text, $length = 155)
     }
     return $text;
 }
+
+function get_portada_by_date($fecha){
+
+    global $wpdb;
+
+    if (!empty($fecha))
+    {
+        $sql = "SELECT
+						*
+					FROM
+						notas_portadas
+					WHERE
+						fecha = '{$fecha}'
+					LIMIT
+						0,1";
+
+
+        $pordada_impresa = $wpdb->get_row($sql);
+
+        if($pordada_impresa)
+        {
+            return $pordada_impresa->issuu;
+        }
+        return null;
+
+
+
+
+    }
+}
+
+function get_portadas_anteriores()
+{
+
+    global $wpdb;
+
+    $sql = "SELECT
+					*
+				FROM
+					notas_portadas
+				ORDER BY
+					fecha
+				DESC
+				LIMIT
+					0,100";
+
+    $portadas_anteriores = $wpdb->get_results($sql);
+    $carrusel = '';
+    if ($portadas_anteriores)
+    {
+
+        $counter = 1;
+        $activo = 1;
+        $pintado = false;
+        $carrusel  = '<div class="carousel slide" id="portada_impresa">';
+        $carrusel  .= '<div class="carousel-inner">';
+        foreach($portadas_anteriores as $post)
+        {
+
+            setup_postdata($post);
+            if ($counter == 1) {
+                if ($activo) {
+                    $carrusel .= '<div class="item active">';
+                    $activo = 0;
+                } else {
+                    $carrusel .= '<div class="item">';
+                }
+
+                $carrusel .= '<ul class="thumbnails sociales-thumbnails">';
+            }
+            //Loop 3
+            $carrusel .= '<li class="span4">';
+            $carrusel .= '<div class="thumbnail sociales-thumbnails-item">';
+
+            $imagen = "/wp-content/uploads/{$post->img1}";
+            $src= '/thumbs/180x180/' . $imagen;
+
+            $carrusel .= '<a href="?io6971='.strtotime($post->fecha). '">';
+            $carrusel .= '<img src="' . $src . '" alt="' . $post->post_title . '" title="' . $post->post_title . '">';
+            $carrusel .= '</a>';
+            $carrusel .= '<p>' . $post->post_title . '</p>';
+            $carrusel .= '</div>';
+            $carrusel .= '</li>';
+            //Fin Loop 3
+
+
+            if ($counter == 3) {
+                $carrusel .= '</ul>';
+                $carrusel .= '</div>';
+                $counter = 1;
+                $pintado = true;
+            } else {
+                $counter++;
+                $pintado = false;
+            }
+        }
+        if (!$pintado) {
+            $carrusel .= '</ul>';
+            $carrusel .= '</div>';
+        }
+        $carrusel .= '</div>';
+        $carrusel .= '<a data-slide="prev" href="#portada_impresa" class="left sociales-carousel-control">&nbsp;</a>';
+        $carrusel .= '<a data-slide="next" href="#portada_impresa" class="right sociales-carousel-control">&nbsp;</a>';
+        $carrusel .= '</div>';
+
+        return $carrusel;
+    }
+
+
+
+}
