@@ -1495,9 +1495,8 @@ function get_portadas_anteriores()
         $carrusel .= '<a data-slide="next" href="#portada_impresa" class="right sociales-carousel-control">&nbsp;</a>';
         $carrusel .= '</div>';
 
-        return $carrusel;
     }
 
-
+    return $carrusel;
 
 }
