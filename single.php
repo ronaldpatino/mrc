@@ -9,11 +9,7 @@
 <!-- Cabecera, titulares -->
 
 
-
 <div class='container'>
-
-
-
 
 
     <?php get_template_part('blocks/menutop'); ?>
@@ -25,7 +21,6 @@
 
 
     <?php get_template_part('blocks/navbartop'); ?>
-
 
 
 </div>
@@ -47,283 +42,254 @@
 <!-- Fin cabecera, titulares -->
 
 
-
-
-
 <div class='container'>
 
 
+<?php get_template_part('blocks/masleido'); ?>
 
-    <?php get_template_part('blocks/masleido'); ?>
 
 
 
 
 
 
+<div id='content' class='row-fluid'>
 
-    <div id='content' class='row-fluid'>
 
+<div class='span8 main'>
 
 
-        <div class='span8 main'>
+<?php if (have_posts())
 
 
 
-            <?php if (have_posts())
+while (have_posts()) :
 
 
+the_post(); ?>
 
-            while (have_posts()) :
 
 
+<!-- detalle de la noticia -->
 
-                the_post(); ?>
 
+<article role="main" class="primary-content" id="post-<?php the_ID(); ?>">
 
 
-            <!-- detalle de la noticia -->
+<header>
 
 
+    <h2><?php the_title(); ?></h2>
 
-            <article role="main" class="primary-content" id="post-<?php the_ID(); ?>">
 
+    <p>Publicado el <?php the_time('Y/m/d') ?> por  <?php echo get_the_author(); ?>
 
 
-                <header>
 
 
 
-                    <h2><?php the_title(); ?></h2>
+        <?php get_template_part('blocks/socialtags'); ?>
 
 
 
+        <br>
 
 
-                    <p>Publicado el <?php the_time('Y/m/d') ?> por  <?php echo get_the_author(); ?>
+</header>
 
 
 
+<?php
 
+$cadena = '';
 
-                        <?php get_template_part('blocks/socialtags'); ?>
+$primero = true;
 
+$count =0;
 
+if (has_post_thumbnail()) {
 
-                    <br>
 
+    $imagen = get_featured_image(get_the_ID());
 
+    $src = '/thumbs/685x340xS/' . $imagen;
 
-                </header>
 
+    $cadena .= '<div class="active item itembg">';
 
+    $cadena .= "<img  src='{$src}' alt='" . get_the_title() . "  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay' title='" . get_the_title() . "  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay'/>";
 
-                <?php
 
-                $cadena = '';
+    $caption = the_post_thumbnail_caption();
 
-                $primero = true;
+    if (strlen($caption)) {
 
-                if (has_post_thumbnail()) {
+        $cadena .= "<div class='carousel-caption carousel-caption_imagenes_noticia'>";
 
+        $cadena .= "<p>{$caption}</p>";
 
+        $cadena .= '</div>';
 
-                    $imagen = get_featured_image(get_the_ID());
+    }
 
-                    $src= '/thumbs/685x340xS/' . $imagen;
+    $cadena .= '</div>';
 
+    $primero = false;
 
+    $count++;
 
-                    $cadena .= '<div class="active item itembg">';
+}
 
-                    $cadena .= "<img  src='{$src}' alt='" . get_the_title() . "  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay' title='" . get_the_title() . "  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay'/>";
 
+$has_attachment = false;
 
+$attachments = mrc_get_image_attachments(get_the_ID());
 
-                    $caption = the_post_thumbnail_caption();
 
-                    if (strlen($caption)){
+if ($attachments) {
 
-                        $cadena .= "<div class='carousel-caption carousel-caption_imagenes_noticia'>";
+    $has_attachment = true;
 
-                        $cadena .= "<p>{$caption}</p>";
+    foreach ($attachments as $attachment) {
 
-                        $cadena .= '</div>';
 
-                    }
+        if ($primero) {
 
-                    $cadena .= '</div>';
+            $imagen = strip_url_image($attachment->guid);
 
-                    $primero = false;
+            $src = '/thumbs/685x340xS/' . $imagen;
 
-                }
 
+            $cadena .= '<div class="active item itembg">';
 
+            $cadena .= "<img  src='{$src}' alt='{$attachment->post_excerpt}  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay' title='{$attachment->post_excerpt}  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay'/>";
 
-                $has_attachment = false;
+            if (strlen($attachment->post_excerpt)) {
 
-                $attachments = mrc_get_image_attachments(get_the_ID());
+                $cadena .= "<div class='carousel-caption carousel-caption_imagenes_noticia'>";
 
+                $cadena .= "<p>{$attachment->post_excerpt}</p>";
 
+                $cadena .= '</div>';
 
-                if ($attachments) {
+            }
 
-                    $has_attachment = true;
+            $cadena .= '</div>';
 
-                    foreach ($attachments as $attachment) {
+            $primero = false;
 
 
+        } else {
 
-                        if ($primero) {
 
-                            $imagen = strip_url_image($attachment->guid);
+            $imagen = strip_url_image($attachment->guid);
 
-                            $src= '/thumbs/685x340xS/' . $imagen;
+            $src = '/thumbs/685x340xS/' . $imagen;
 
 
+            $cadena .= '<div class="item itembg">';
 
-                            $cadena .= '<div class="active item itembg">';
+            $cadena .= "<img  src='{$src}' alt='{$attachment->post_excerpt}   - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay' title='{$attachment->post_excerpt}  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay'/>";
 
-                            $cadena .= "<img  src='{$src}' alt='{$attachment->post_excerpt}  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay' title='{$attachment->post_excerpt}  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay'/>";
+            if (strlen($attachment->post_excerpt)) {
 
-                            if (strlen($attachment->post_excerpt)){
+                $cadena .= "<div class='carousel-caption carousel-caption_imagenes_noticia'>";
 
-                                $cadena .= "<div class='carousel-caption carousel-caption_imagenes_noticia'>";
+                $cadena .= "<p>{$attachment->post_excerpt}</p>";
 
-                                $cadena .= "<p>{$attachment->post_excerpt}</p>";
+                $cadena .= '</div>';
 
-                                $cadena .= '</div>';
+            }
 
-                            }
+            $cadena .= '</div>';
 
-                            $cadena .= '</div>';
 
-                            $primero = false;
+        }
 
+        $count++;
+    }
 
+}
 
-                        } else {
 
 
+?>
 
-                            $imagen = strip_url_image($attachment->guid);
 
-                            $src= '/thumbs/685x340xS/' . $imagen;
 
 
+<br/>
 
-                            $cadena .= '<div class="item itembg">';
+<?php if (strlen($cadena)): ?>
 
-                            $cadena .= "<img  src='{$src}' alt='{$attachment->post_excerpt}   - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay' title='{$attachment->post_excerpt}  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay'/>";
+    <div id="imagenes_noticia" class="carousel slide">
 
-                            if (strlen($attachment->post_excerpt)){
+        <!-- Carousel items -->
 
-                                $cadena .= "<div class='carousel-caption carousel-caption_imagenes_noticia'>";
+        <div class="carousel-inner">
 
-                                $cadena .= "<p>{$attachment->post_excerpt}</p>";
-
-                                $cadena .= '</div>';
-
-                            }
-
-                            $cadena .= '</div>';
-
-
-
-                        }
-
-                    }
-
-                }
-
-
-
-                ?>
-
-
-
-
-                    <br/>
-
-					<?php if(strlen($cadena)):?>
-
-                    <div id="imagenes_noticia" class="carousel slide">
-
-                        <!-- Carousel items -->
-
-                        <div class="carousel-inner">
-
-                            <?php echo $cadena; ?>
-
-                        </div>
-
-                        <!-- Carousel nav -->
-
-                        <a class="carousel-control left" href="#imagenes_noticia" data-slide="prev">&lsaquo;</a>
-
-                        <a class="carousel-control right" href="#imagenes_noticia" data-slide="next">&rsaquo;</a>
-
-
-
-                    </div>
-					<?php endif;?>
-
-
-
-
-
-
-
-                <?php the_content(); ?>
-
-                <hr/>
-
-
-
-                <?php //comments_template('', true); ?>
-
-
-
-
-
-                <!-- fin detalle de la noticia -->
-
-
-
-                <?php endwhile; ?>
-
-
-
-
-
-                <?php get_template_part('blocks/socialtags'); ?>
-
-
-
-            </article>
-
-
+            <?php echo $cadena; ?>
 
         </div>
 
+        <!-- Carousel nav -->
+        <?php if($count > 1):?>
 
+        <a class="carousel-control left" href="#imagenes_noticia" data-slide="prev">&lsaquo;</a>
 
-        <div class='span4 sidebar'>
-
-
-
-            <?php if (dynamic_sidebar('detallenoticia')) : else : endif; ?>
-
-
-
-        </div>
-
-
+        <a class="carousel-control right" href="#imagenes_noticia" data-slide="next">&rsaquo;</a>
+        <?php endif;?>
 
     </div>
+<?php endif; ?>
 
 
 
+
+
+
+
+<?php the_content(); ?>
+
+<hr/>
+
+
+
+<?php //comments_template('', true); ?>
+
+
+
+
+
+<!-- fin detalle de la noticia -->
+
+
+
+<?php endwhile; ?>
+
+
+
+
+
+<?php get_template_part('blocks/socialtags'); ?>
+
+
+</article>
+
+
+</div>
+
+
+<div class='span4 sidebar'>
+
+
+    <?php if (dynamic_sidebar('detallenoticia')) : else : endif; ?>
+
+
+</div>
+
+
+</div>
 
 
 </div>
