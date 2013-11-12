@@ -11,7 +11,7 @@
         </div>
 
         <div class="span4">
-            <h2><a href="<?php echo get_home_url()?>/temas" >Temas</a></h2>
+            <?php if ( dynamic_sidebar('bloquetemas') ) : else : endif; ?>
         </div>
     </div>
 </div>

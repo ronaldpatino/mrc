@@ -14,6 +14,7 @@ require_once('widgets/NoticiaPrincipal_Widget.php');
 require_once('widgets/PortadaImpresa_Widget.php');
 require_once('widgets/Caricatura_Widget.php');
 require_once('widgets/Opinion_Widget.php');
+require_once('widgets/Temas_Widget.php');
 
 
 
@@ -132,6 +133,12 @@ if (function_exists('register_sidebar'))
         'name' => __( 'Bloque Opinion', 'opinion' ),
         'id' => 'bloqueopinion',
         'description' => __( 'Bloque opinion', 'dir' )
+    ) );
+
+    register_sidebar( array (
+        'name' => __( 'Bloque Temas', 'temas' ),
+        'id' => 'bloquetemas',
+        'description' => __( 'Bloque temas', 'dir' )
     ) );
 
     register_sidebar( array (
