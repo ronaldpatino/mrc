@@ -51,7 +51,7 @@ class Opinion_Widget extends WP_Widget {
 
 
         $opinion = '<h2><a href="' . get_home_url() . '/opinion" >Opini&oacute;n</a></h2>';
-        $noticia_secundaria_lista_seccion = '<div class="span4 noticia-tricol">';
+        //$noticia_secundaria_lista_seccion = '<div class="span4 noticia-tricol">';
 
         foreach ($noticiasSecundariaLista as $post)
         {
