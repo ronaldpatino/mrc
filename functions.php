@@ -1472,7 +1472,7 @@ function get_portadas_anteriores()
             $carrusel .= '<div class="thumbnail sociales-thumbnails-item">';
 
             $imagen = "/wp-content/uploads/{$post->img1}";
-            $src= '/thumbs/180x180/' . $imagen;
+            $src= '/thumbs/220x400/' . $imagen;
 
             $carrusel .= '<a href="?io6971='.strtotime($post->fecha). '">';
             $carrusel .= '<img src="' . $src . '" alt="' . $post->post_title . '" title="' . $post->post_title . '">';
