@@ -1501,6 +1501,7 @@ function get_portadas_anteriores()
         $carrusel .= '<a data-slide="prev" style="top:90px; !important" href="#portada_impresa" class="left sociales-carousel-control">&nbsp;</a>';
         $carrusel .= '<a data-slide="next" style="top:90px; !important" href="#portada_impresa" class="right sociales-carousel-control">&nbsp;</a>';
         $carrusel .= '</div>';
+        $carrusel .= '<script type="text/javascript"> jQuery(document).ready(function ($) { $('#portada_impresa').carousel({ pause: true, interval: false }); });</script>';
 
     }
 
