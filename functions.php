@@ -1477,10 +1477,8 @@ function get_portadas_anteriores()
             $carrusel .= '<a href="?io6971='.strtotime($post->fecha). '">';
             $carrusel .= '<img src="' . $src . '" alt="' . $post->post_title . '" title="' . $post->post_title . '">';
             $carrusel .= '</a>';
-            $carrusel .= '<div class="carousel-caption">';
-            $carrusel .= '<p> Portada del ' . strtotime($post->fecha) . '</p>';
             $carrusel .= '</div>';
-            $carrusel .= '</div>';
+            $carrusel .= '<p> Portada del ' . $post->fecha . '</p>';
             $carrusel .= '</li>';
             //Fin Loop 3
 
