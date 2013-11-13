@@ -1478,7 +1478,7 @@ function get_portadas_anteriores()
             $carrusel .= '<img src="' . $src . '" alt="' . $post->post_title . '" title="' . $post->post_title . '">';
             $carrusel .= '</a>';
             $carrusel .= '</div>';
-            $carrusel .= '<p> Portada del ' . $post->fecha . '</p>';
+            $carrusel .= '<p style="text-align:center;"> Portada del ' . $post->fecha . '</p>';
             $carrusel .= '</li>';
             //Fin Loop 3
 
@@ -1498,8 +1498,8 @@ function get_portadas_anteriores()
             $carrusel .= '</div>';
         }
         $carrusel .= '</div>';
-        $carrusel .= '<a data-slide="prev" href="#portada_impresa" class="left sociales-carousel-control">&nbsp;</a>';
-        $carrusel .= '<a data-slide="next" href="#portada_impresa" class="right sociales-carousel-control">&nbsp;</a>';
+        $carrusel .= '<a data-slide="prev" style="top:90px; !important" href="#portada_impresa" class="left sociales-carousel-control">&nbsp;</a>';
+        $carrusel .= '<a data-slide="next" style="top:90px; !important" href="#portada_impresa" class="right sociales-carousel-control">&nbsp;</a>';
         $carrusel .= '</div>';
 
     }
