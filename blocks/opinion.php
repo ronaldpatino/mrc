@@ -11,7 +11,7 @@
         </div>
 
         <div class="span4">
-           
+            <?php if ( dynamic_sidebar('bloquetemas') ) : else : endif; ?>
         </div>
     </div>
 </div>
