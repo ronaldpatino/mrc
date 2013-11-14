@@ -1398,7 +1398,7 @@ function get_summary($text, $length = 155)
     return $text;
 }
 
-function get_portada_by_date($fecha){
+function get_portada_by_date($fecha, $imagen=false){
 
     global $wpdb;
 
@@ -1418,7 +1418,15 @@ function get_portada_by_date($fecha){
 
         if($pordada_impresa)
         {
-            return $pordada_impresa->issuu;
+        	if (!imagen)
+        	{
+	        	return $pordada_impresa->issuu;	
+        	}
+        	
+            $imagen = "/wp-content/uploads/{$pordada_impresa->img1}";
+            $src= '/thumbs/305x520/' . $imagen;
+	    return $src;
+            
         }
         return null;
 
