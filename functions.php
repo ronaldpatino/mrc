@@ -1418,14 +1418,26 @@ function get_portada_by_date($fecha, $imagen=false){
 
         if($pordada_impresa)
         {
-        	if (!imagen)
+        	if (!$imagen)
         	{
 	        	return $pordada_impresa->issuu;	
         	}
         	
-            $imagen = "/wp-content/uploads/{$pordada_impresa->img1}";
-            $src= '/thumbs/305x520/' . $imagen;
-	    return $src;
+        	if(strlen($pordada_impresa->img1) <= 0)
+        	{
+        	
+        		$src = "/thumbs/305x520xE/wp-content/themes/mrc/assets/img/placeholder.png";	
+        		$imagen = '<img style="width:305px !important; height:520px !important;" src="' . $src . '" alt="Portada del ' . $fecha . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay" title="Portada del ' . $fecha . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay">';
+	        	
+        	}
+        	else
+        	{
+	        	$src = "/thumbs/305x520xE/wp-content/uploads/{$pordada_impresa->img1}";
+        		$imagen = '<img style="width:305px !important; height:520px !important;" src="' . $src . '" alt="Portada del ' . $fecha . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay" title="Portada del ' . $fecha . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay">';
+
+        	}
+            
+			return $imagen;
             
         }
         return null;
@@ -1479,8 +1491,13 @@ function get_portadas_anteriores()
             $carrusel .= '<li class="span4">';
             $carrusel .= '<div class="thumbnail sociales-thumbnails-item">';
 
-            $imagen = "/wp-content/uploads/{$post->img1}";
-            $src= '/thumbs/220x400/' . $imagen;
+        	if(strlen($post->img1) <= 0){
+        		$src = "/thumbs/220x400xE/wp-content/themes/mrc/assets/img/placeholder.png";
+	        }
+	        else {
+		        $src = "/thumbs/220x400/wp-content/uploads/{$post->img1}";
+	        }   
+
 
             $carrusel .= '<a href="?io6971='.strtotime($post->fecha). '">';
             $carrusel .= '<img src="' . $src . '" alt="' . $post->post_title . '" title="' . $post->post_title . '">';
