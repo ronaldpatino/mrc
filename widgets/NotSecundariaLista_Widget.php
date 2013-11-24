@@ -26,14 +26,14 @@ class NotSecundariaLista extends WP_Widget {
 
 
         if ($NOTICIA_SECUNDARIA_LISTA == 5 && $NOTICIA_SECUNDARIA_LISTA != 26){
-            $CATEGORIAS_EXCLUIR[0]=$NOTICIA_DESTACADA_SECCION_CAT_ID;
-            $CATEGORIAS_EXCLUIR[1]=$NOTICIA_DEPORTIVO_CUENCA_CAT_ID;
+            //$CATEGORIAS_EXCLUIR[0]=$NOTICIA_DESTACADA_SECCION_CAT_ID;
+            //$CATEGORIAS_EXCLUIR[1]=$NOTICIA_DEPORTIVO_CUENCA_CAT_ID;
         }
         else
         {
-            $CATEGORIAS_EXCLUIR[]=$NOTICIA_DESTACADA_SECCION_CAT_ID;
+            //$CATEGORIAS_EXCLUIR[]=$NOTICIA_DESTACADA_SECCION_CAT_ID;
         }
-
+			$CATEGORIAS_EXCLUIR[]=$NOTICIA_DESTACADA_SECCION_CAT_ID;
 
         global $wpdb, $post;
 
@@ -62,19 +62,43 @@ class NotSecundariaLista extends WP_Widget {
         $noticia_secundaria_lista_seccion = '<div class="span4 noticia-tricol">';
 
         $count = 0;
+        
+        $NOTICIA_NOTPRINCIPAL_SECCION = get_id_real($instance['categoria']);
+        $NOTICIA_DESTACADA_SECCION = get_id_real(53);
+
+        
+        $sql_princ = "SELECT
+                    *
+                FROM wp_04vcw8_posts
+                WHERE  ( (
+                                    SELECT COUNT(1)
+                                    FROM wp_04vcw8_term_relationships
+                                    WHERE term_taxonomy_id IN ($NOTICIA_NOTPRINCIPAL_SECCION, $NOTICIA_DESTACADA_SECCION)
+                                    AND object_id = wp_04vcw8_posts.ID
+                                ) = 2 )
+                AND
+                    wp_04vcw8_posts.post_type = 'post'
+                AND (wp_04vcw8_posts.post_status = 'publish')
+                GROUP BY
+                    wp_04vcw8_posts.ID
+                ORDER BY
+                    wp_04vcw8_posts.post_date
+                DESC
+                LIMIT 0, 1";
+        
+        $noticia_filtrar = $wpdb->get_row($sql_princ);
+
+        
         foreach ($noticiasSecundariaLista as $post)
         {
             $category = get_the_category($post->ID);
 
-            $mostrar = true;
+            $mostrar = true;            
 
-            foreach($category as $c)
-            {
-                if (in_array($c->cat_ID, $CATEGORIAS_EXCLUIR)){
-                    $mostrar = false;
-                    break;
-                }
+            if ($post->ID == $noticia_filtrar->ID){            	
+                $mostrar = false;
             }
+
 
             if ($mostrar)
             {
