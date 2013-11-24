@@ -21,7 +21,7 @@ class PortadaImpresa extends WP_Widget {
         
         $fecha =  date('Y-m-d');
         
-        $src = get_portada_by_date($fecha);
+        $src = get_portada_by_date($fecha, true);
         
         if (!$src){
         	$fecha =  date('Y-m-d', strtotime('-1 day', strtotime($date_raw)));
@@ -31,7 +31,7 @@ class PortadaImpresa extends WP_Widget {
 	        $impreso = '<ul class="thumbnails" style="margin-top: 20px;">';
 	        $impreso .= '<li class="span12 thumbnail portada" style="text-align: center;"><h3>Portada</h3>';
 	
-	        $impreso .= '<a href="' .get_home_url(). '/impresa"><img src="' . $src . '" alt="Portada del ' . $fecha. '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay" title="Portada del ' . $fecha . '  - El Mercurio de Cuenca Noticias Tiempo  Ecuador Azuay"></a>';
+	        $impreso .= '<a href="' .get_home_url(). '/impresa">' . $src . '</a>';
 	        $impreso .= '</li></ul>';
 	        
         
