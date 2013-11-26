@@ -11,5 +11,6 @@ function compress($buffer) {
 
 include('jquery-1.9.0.js');
 include('bootstrap.min.js');
+include('bootstrap-datepicker.js');
 
 ob_end_flush();

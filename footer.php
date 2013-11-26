@@ -1,6 +1,7 @@
 <?php wp_footer(); ?>
 <script type="text/javascript">
     jQuery(document).ready(function($) {
+        $('#sandbox-container div').datepicker({});
         var tw;  $('.carousel').carousel({interval: 4000});
         $.get("<?php bloginfo('template_url'); ?>/clima.php", function(data){ }).done(function(data) { $("#clima").append(data); }).fail(function() { $("#clima").append("");});
         $.getJSON('<?php bloginfo('template_url'); ?>/twitter.php', function(data) { }).done(function(data) {

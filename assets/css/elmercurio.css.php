@@ -15,6 +15,7 @@ function compress($buffer) {
 
 include('bootstrap.css');
 include('bootstrap-responsive.css');
+include('datepicker.css');
 include('custom.css');
 include('font.css');
 ob_end_flush();
