@@ -45,11 +45,10 @@ class Seccion_Widget extends WP_Widget
 
 
         $noticiaSeccion = $wpdb->get_results($sql);
-
-        $category = get_the_category_by_ID($instance['categoria']);
+        $category = get_category($instance['categoria']);
 
         $post_imprimir  = '<div class="span4 noticia-tricol">';
-        $post_imprimir .= '<h2 class="cultura"><a href="' . get_home_url() . '/'. strtolower($category) . '">' . $category . '</a></h2>';
+        $post_imprimir .= '<h2 class="cultura"><a href="' . get_home_url() . '/'. strtolower($category->slug) . '">' . $category->name . '</a></h2>';
         $primera_noticia = true;
         foreach ($noticiaSeccion as $post) {
             setup_postdata($post);
