@@ -28,7 +28,7 @@ get_header(); ?>
                     ISSUU
                 </div>
                 <div class="span4">
-                    <div  id="sandbox-container">
+                    <div  id="hemeroteca-container">
                         <div></div>
                     </div>
                 </div>
