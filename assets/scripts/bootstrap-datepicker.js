@@ -102,6 +102,7 @@
             // Check if "de-DE" style date is available, if not language should
             // fallback to 2 letter code eg "de"
             var lang = o.language;
+            this.curDate = o.curDate;
             if (!dates[lang]) {
                 lang = lang.split('-')[0];
                 if (!dates[lang])
@@ -140,7 +141,6 @@
             o.weekStart %= 7;
             o.weekEnd = ((o.weekStart + 6) % 7);
 
-            this.date = o.setDate;
             var format = DPGlobal.parseFormat(o.format);
             if (o.startDate !== -Infinity) {
                 if (!!o.startDate) {
@@ -488,9 +488,6 @@
             } else {
                 date = this.isInput ? this.element.val() : this.element.data('date') || this.element.find('input').val();
                 delete this.element.data().date;
-                var fecha = this.date;
-                date =  new Date(fecha * 1000);
-                date.setHours(19);
             }
 
             this.date = DPGlobal.parseDate(date, this.o.format, this.o.language);
@@ -572,7 +569,9 @@
             }
 
             var date_actual = date.getTime();
-            if (date_actual == currentDate) {
+            var curDate = this.curDate;
+            var ts = new Date(curDate * 1000).format('h:i:s')
+            if (date_actual == curDate) {
                 cls.push('active');
             }
             if (date.valueOf() < this.o.startDate || date.valueOf() > this.o.endDate ||

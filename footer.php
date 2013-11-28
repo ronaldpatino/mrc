@@ -3,7 +3,7 @@
     jQuery(document).ready(function($) {
 
         //$('#hemeroteca-container div').datepicker({setDate: <?php  echo date('m/d/Y', $_GET['upe'])?>});
-        $('#hemeroteca-container div').datepicker({<?php echo isset($_GET['upe'])?'setDate:' . $_GET['upe'] . ',endDate:\'' .  date('m/d/Y', strtotime('-1 day', strtotime(date('m/d/Y')))) . '\'':'setDate:'.  strtotime('-1 day', strtotime(date('m/d/Y'))) .',endDate: \'-1d\'';?>}).on('changeDate', function(ev){ window.location.href = '<?php echo get_site_url();?>' + '/hemeroteca/?upe='+ (ev.date.valueOf()/1000)}) ;
+        $('#hemeroteca-container div').datepicker({<?php echo isset($_GET['upe'])?'curDate:' . $_GET['upe'] . ',endDate:\'' .  date('m/d/Y', strtotime('-1 day', strtotime(date('m/d/Y')))) . '\'':'curDate:'.  strtotime('-1 day', strtotime(date('m/d/Y'))) .',endDate: \'-1d\'';?>}).on('changeDate', function(ev){ window.location.href = '<?php echo get_site_url();?>' + '/hemeroteca/?upe='+ (ev.date.valueOf()/1000)}) ;
 
         var tw;  $('.carousel').carousel({interval: 4000});
         $.get("<?php bloginfo('template_url'); ?>/clima.php", function(data){ }).done(function(data) { $("#clima").append(data); }).fail(function() { $("#clima").append("");});
