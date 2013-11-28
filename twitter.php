@@ -23,7 +23,7 @@ if (file_exists('/home/elmercur/www/wp-content/twitter_result.data')) {
 if (!$twitter_result) { // cache doesn't exist or is older than 10 mins
 
     $url = "https://api.twitter.com/1.1/statuses/user_timeline.json";
-    $getfield = '?screen_name=mercurioec&exclude_replies=true&include_rts=false&count=10';
+    $getfield = '?screen_name=mercurioec&exclude_replies=true&include_rts=true&count=100';
     $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
 
     $h = "5";// Hour for time zone goes here e.g. +7 or -4, just remove the + or -
@@ -42,7 +42,7 @@ if (!$twitter_result) { // cache doesn't exist or is older than 10 mins
 
         $regex = preg_match($reg_exUrl, $v['text'], $matches);
         $link = $regex?$regex[0]:'#';
-        $fecha = gmdate("H:i", strtotime($v['created_at'])-($ms)); // the "-" can be switched to a plus if that's what your time zone is.
+        $fecha = gmdate("M/d H:i", strtotime($v['created_at'])-($ms)); // the "-" can be switched to a plus if that's what your time zone is.
         $href = isset($v['entities']['urls'][0]['url'])?$v['entities']['urls'][0]['url']:$link;
         $title = isset($v['entities']['urls'][0]['expanded_url'])?$v['entities']['urls'][0]['expanded_url']:'El Mercurio  Cuenca - Noticias Ecuador Azuay';
         $target = isset($v['entities']['urls'][0]['expanded_url'])?'target="_blank"':'';
@@ -55,7 +55,7 @@ if (!$twitter_result) { // cache doesn't exist or is older than 10 mins
 
 
     $url = "https://api.twitter.com/1.1/statuses/user_timeline.json";
-    $getfield = '?screen_name=cronicamercurio&exclude_replies=true&include_rts=false&count=20';
+    $getfield = '?screen_name=cronicamercurio&exclude_replies=true&include_rts=true&count=100';
     $requestMethod = 'GET';
     $twitter = new TwitterAPIExchange($settings);
     $valor = $twitter->setGetfield($getfield)
@@ -68,7 +68,7 @@ if (!$twitter_result) { // cache doesn't exist or is older than 10 mins
 
         $regex = preg_match($reg_exUrl, $v['text'], $matches);
         $link = $regex?$regex[0]:'#';
-        $fecha = gmdate("H:i", strtotime($v['created_at'])-($ms)); // the "-" can be switched to a plus if that's what your time zone is.
+        $fecha = gmdate("M/d H:i", strtotime($v['created_at'])-($ms)); // the "-" can be switched to a plus if that's what your time zone is.
         $href = isset($v['entities']['urls'][0]['url'])?$v['entities']['urls'][0]['url']:$link;
         $title = isset($v['entities']['urls'][0]['expanded_url'])?$v['entities']['urls'][0]['expanded_url']:'El Mercurio  Cuenca - Noticias Ecuador Azuay';
         $target = isset($v['entities']['urls'][0]['expanded_url'])?'target="_blank"':'';
