@@ -570,7 +570,7 @@
 
             var date_actual = date.getTime();
             var curDate = this.curDate;
-            var ts = new Date(curDate * 1000).format('h:i:s')
+            var ts = new Date(curDate * 1000); ts.setHours(19); curDate = ts.getTime();
             if (date_actual == curDate) {
                 cls.push('active');
             }
